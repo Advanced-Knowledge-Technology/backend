@@ -1,5 +1,6 @@
 from django.urls import path
 from .api_views.ApiFolderView import *
+from .api_views.ApiFileView import *
 
 urlpatterns = [
     path("folder/", FolderListView.as_view(), name="folder-list"),
@@ -7,4 +8,10 @@ urlpatterns = [
     path("folder/update/", FolderUpdateView.as_view(), name="folder-update"),
     path("folder/delete/", FolderDeleteView.as_view(), name="folder-delete"),
     path("folder/tree", FolderGetTree.as_view(), name="folder-get-tree"),
+    
+    path("file/", FileInforView.as_view(), name="file-list"),
+    path("file/add/", FileCreateView.as_view(), name="file-add"),
+    path("file/update/", FileUpdateView.as_view(), name="file-update"),
+    path("file/delete/", FileDeleteView.as_view(), name="file-delete"),
+    path("file/download/", FileDownloadView.as_view(), name="file-download"),
 ]
